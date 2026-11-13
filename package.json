@@ -1,0 +1,26 @@
+{
+  "name": "card-counting-trainer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --bun --no-env-file vite",
+    "dev:prod": "bun --bun --no-env-file vite --mode production",
+    "build": "bun --bun --no-env-file vite build",
+    "preview": "bun --bun --no-env-file vite preview",
+    "test": "bun test",
+    "images": "bun scripts/make-images.js",
+    "sync-core": "bun scripts/sync-core.js",
+    "db:start": "supabase start -x imgproxy,vector,logflare,supavisor,storage-api",
+    "db:stop": "supabase stop",
+    "db:reset": "supabase db reset",
+    "functions": "bun scripts/sync-core.js && supabase functions serve"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "supabase": "^3.1.0",
+    "vite": "^8.3.8"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0"
+  }
+}
