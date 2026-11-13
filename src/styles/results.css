@@ -1,0 +1,44 @@
+/* =========================================================
+   RESULTS / STATS — Zetamac "Score: N" + a small data sheet
+   ========================================================= */
+.res-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+#resSub, #resTime { display: block; font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.badge { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--accent); border: 1px solid var(--accent); padding: 1px 8px; white-space: nowrap; }
+.score { font-size: 20px; margin: 14px 0 4px; }
+.score b { font-family: var(--mono); font-size: 40px; font-weight: 700; margin-left: 6px; }
+#resAccSub { font-size: 13px; color: var(--muted); }
+.ranked-status { margin-top: 8px; font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+.ranked-status.good { color: var(--good); } .ranked-status.bad { color: var(--bad); }
+tr.me td { color: var(--accent); font-weight: 600; }
+/* stat tiles rendered as a 2-column data sheet */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; margin: 14px 0 6px; border-top: 1px solid var(--line); }
+.tile { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.tile span { color: var(--muted); }
+.tile b { font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+.section { margin-top: 18px; }
+.section-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.section-head h3 { font-size: 11px; font-weight: 400; }
+.section-head select { height: 22px; font-size: 11px; }
+.chart { width: 100%; height: auto; display: block; background: var(--field); border: 1px solid var(--line); }
+.chart text { fill: var(--muted); font-size: 10px; font-family: var(--mono); }
+.chart .grid { stroke: var(--line); }
+.chart .axis { stroke: var(--line); }
+.chart .zero { stroke: var(--muted); stroke-dasharray: 3 3; opacity: .6; }
+.chart .line { stroke: var(--accent); stroke-width: 1.6; fill: none; }
+.chart .area { fill: var(--accent); opacity: .06; }
+.chart .ldot { fill: var(--accent); }
+.chart rect.good { fill: var(--good); }
+.chart rect.bad { fill: var(--bad); }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 6px; }
+.legend i { display: inline-block; width: 8px; height: 8px; margin-right: 5px; }
+.legend i.l { width: 14px; height: 2px; background: var(--accent); vertical-align: 3px; }
+.table-wrap { max-height: 300px; overflow: auto; border: 1px solid var(--line); background: var(--field); }
+table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 4px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child, th.l, td.l { text-align: left; }
+th { position: sticky; top: 0; background: var(--field); color: var(--muted); font-weight: 400; }
+td.good { color: var(--good); font-weight: 600; } td.bad { color: var(--bad); font-weight: 600; }
+.sq { display: none; }
+.empty { text-align: center !important; padding: 18px 0 !important; color: var(--muted); }
+.actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+#shareBtn { margin-right: auto; align-self: center; }

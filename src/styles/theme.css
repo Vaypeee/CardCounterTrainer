@@ -1,0 +1,36 @@
+/* =========================================================
+   THEME — one grey panel (à la Zetamac), monospace numbers,
+   hairlines, square corners, casino green as the only accent.
+   ========================================================= */
+:root {
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --bg: #0d0f0e;
+  --panel: #191c1a;
+  --field: #0f1110;
+  --line: #2c312e;
+  --text: #e8eae8;
+  --muted: #8f9791;
+  --accent: #2fbf71;
+  --accent-text: #04140b;
+  --good: #2fbf71;
+  --bad: #f05555;
+  --warn: #e3a83b;
+  --felt-1: #17774c;
+  --felt-2: #0d4f31;
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --panel: #dcdcdc;
+  --field: #ffffff;
+  --line: #b8b8b8;
+  --text: #000000;
+  --muted: #4a4a4a;
+  --accent: #147a47;
+  --accent-text: #ffffff;
+  --good: #147a47;
+  --bad: #c62828;
+  --warn: #9a6400;
+  color-scheme: light;
+}

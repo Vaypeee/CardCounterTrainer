@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--@head-->
+</head>
+<body data-screen="settings">
+<div class="page">
+  <div class="topline">
+    <button type="button" id="brandBtn">♠ cct</button>
+    <span class="links"><a href="/how-to-count-cards/" id="helpBtn">guide</a><button type="button" id="statsBtn">stats</button><button type="button" id="rankedBtn" data-online hidden>ranked</button><button type="button" id="ladderBtn" data-online hidden>ladder</button><button type="button" id="accountBtn" data-online hidden>sign in</button><button type="button" id="themeBtn">light/dark</button></span>
+  </div>
+
+  <main class="panel">
+    <!-- ================= SETTINGS ================= -->
+    <section id="screen-settings" class="screen">
+      <div class="intro">
+        <h1>Card Counting Trainer</h1>
+        <p>Velua’s Card Counting Trainer is a fast-paced drill: cards are dealt from a real shoe and you keep the count. Choose a mode and press Enter. New to counting? <a href="/how-to-count-cards/" id="helpLink">Read the 3-minute guide</a>.</p>
+        <div id="headStats"></div>
+      </div>
+
+      <div class="group-title">Mode</div>
+      <div class="seg modes" data-setting="mode" id="modeGrid"></div>
+
+      <div class="group-title">Settings</div>
+
+      <div class="opt" data-show="flash hands speed truecount">
+        <label class="k" for="systemSel">System:</label>
+        <select id="systemSel" data-setting="system"></select>
+        <button class="link small" id="refBtn" type="button" aria-expanded="false" aria-controls="refBox">tag values</button>
+      </div>
+      <div id="refBox" class="ref" hidden></div>
+
+      <div class="opt" data-show="flash hands speed truecount">
+        <label class="k" for="decksSel">Decks:</label>
+        <select id="decksSel" data-setting="decks" data-type="num">
+          <option value="1">1</option><option value="2">2</option><option value="4">4</option><option value="6">6</option><option value="8">8</option>
+        </select>
+        <span data-show="flash hands">&nbsp; Penetration: <input type="number" min="50" max="95" step="5" data-setting="penetration" data-type="num" aria-label="Penetration percent"> %</span>
+        <span id="penVal" hidden></span>
+      </div>
+
+      <div class="opt" data-show="flash hands">
+        <label class="k" for="levelSel">Level:</label>
+        <select id="levelSel" data-setting="level">
+          <option value="low">Low (2.0 s/card)</option>
+          <option value="medium">Medium (1.0 s/card)</option>
+          <option value="hard">Hard (0.5 s/card)</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+
+      <div class="opt" data-show="flash hands">
+        <label class="k" for="speedRange">Speed:</label>
+        <input type="number" id="speedRange" min="0.2" max="3" step="0.1" data-setting="speed" data-type="num" aria-label="Seconds per card">
+        <span>s per card</span>
+        <label class="small">&nbsp;<input type="checkbox" data-setting="manual"> manual (Space)</label>
+        <span id="speedVal" hidden></span>
+      </div>
+
+      <div class="opt" data-show="hands">
+        <label class="k" for="playersSel">Players:</label>
+        <select id="playersSel" data-setting="players" data-type="num">
+          <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option>
+        </select>
+        &nbsp; Cards per hand:
+        <select data-setting="cardsPerHand" aria-label="Cards per hand">
+          <option value="2">2</option><option value="3">3</option><option value="auto">play it out</option>
+        </select>
+      </div>
+
+      <div class="opt" data-show="flash hands">
+        <span class="k">Count checks:</span>
+        <label><input type="checkbox" data-setting="checksEnabled"> every (</label>
+        <input type="number" min="3" max="300" data-setting="checkMin" data-type="num" aria-label="Minimum cards between checks">
+        <span>to</span>
+        <input type="number" min="3" max="300" data-setting="checkMax" data-type="num" aria-label="Maximum cards between checks">
+        <span>) cards</span>
+      </div>
+
+      <div class="opt" data-show="flash hands truecount">
+        <span class="k">True count:</span>
+        <select data-setting="deckRounding" aria-label="Decks remaining estimate">
+          <option value="half">decks to nearest ½</option>
+          <option value="whole">decks to nearest 1</option>
+          <option value="exact">exact decks</option>
+        </select>
+        <select data-setting="tcRounding" aria-label="True count rounding">
+          <option value="floor">floor</option>
+          <option value="trunc">truncate</option>
+          <option value="round">round</option>
+        </select>
+      </div>
+
+      <div class="checks">
+        <label data-show="flash hands speed deviations"><input type="checkbox" data-setting="faceUp"> Card graphics</label>
+        <label><input type="checkbox" data-setting="sound"> Sound</label>
+        <label data-show="flash hands speed"><input type="checkbox" data-setting="wheels"> Show running count</label>
+        <label data-show="truecount deviations" title="On a wrong answer the clock stops until you press Continue"><input type="checkbox" data-setting="review"> Training: pause after a mistake</label>
+        <label data-show="flash hands speed"><input type="checkbox" data-setting="distraction"> Distraction mode</label>
+      </div>
+
+      <div class="start">
+        <div>
+          <div class="opt" data-show="flash hands truecount deviations" style="margin:0 0 6px">
+            <label for="durSel">Duration:</label>
+            <select id="durSel" data-setting="duration" data-type="num">
+              <option value="60">60 seconds</option><option value="120">120 seconds</option><option value="300">300 seconds</option><option value="0" id="durFull">full shoe</option>
+            </select>
+          </div>
+          <span id="configLine"></span>
+          <span id="bestPreview"></span>
+          <span id="rankedNote" class="small" aria-live="polite"></span>
+        </div>
+        <button class="btn primary big" id="startBtn" type="button">Start</button>
+      </div>
+    </section>
+
+    <!-- ================= TRAINING ================= -->
+    <section id="screen-train" class="screen" hidden>
+      <div class="bar">
+        <span><span id="clockLabel">Time left:</span> <b id="timer">0:00</b></span>
+        <span><span id="progLabel">Cards left:</span> <b id="progText"></b></span>
+      </div>
+      <div class="progress" aria-hidden="true"><div class="progress-bar" id="progBar"></div><div class="cut" id="cutMark" hidden></div></div>
+
+      <div class="stage" id="stage">
+        <div class="stage-content" id="stageContent"></div>
+        <div class="distraction" id="distraction"></div>
+
+        <div class="overlay" id="countdownOv" hidden>
+          <div class="countdown-info">
+            <div class="count-num" id="countNum">3</div>
+            <p id="countIrc"></p>
+            <p id="countHint" style="opacity:.75"></p>
+          </div>
+        </div>
+
+        <div class="overlay" id="checkOv" hidden>
+          <div class="dialog" role="dialog" aria-labelledby="checkTitle">
+            <span id="checkMeta"></span>
+            <h2 id="checkTitle">What's the running count?</h2>
+            <div class="answer-row">
+              <button class="btn sign" type="button" data-sign="checkInput" aria-label="Toggle sign">±</button>
+              <div class="prompt"><input type="text" id="checkInput" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Running count"></div>
+              <button class="btn primary" type="button" id="checkSubmit">OK</button>
+            </div>
+            <p class="fb" id="checkFb" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="overlay" id="pauseOv" hidden>
+          <div class="dialog" role="dialog" aria-labelledby="pauseTitle">
+            <h2 id="pauseTitle">Paused</h2>
+            <p class="small muted" style="margin:0">Cards are hidden and the clock is stopped.</p>
+            <div class="stack">
+              <button class="btn primary" type="button" id="resumeBtn">Resume <kbd>Esc</kbd></button>
+              <button class="btn" type="button" id="endBtn">End and see results</button>
+              <button class="btn danger" type="button" id="quitBtn">Quit to settings</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="toast" id="toast"></div>
+      </div>
+
+      <div class="under">
+        <span><span id="hudMode"></span> · <span id="hudSys"></span><span id="wheelsCell" hidden> · <span id="wheels"></span></span></span>
+        <span>
+          <button class="btn" type="button" id="nextBtn" hidden>Next <kbd>Space</kbd></button>
+          <button class="link small" type="button" id="pauseBtn">pause (Esc)</button>
+        </span>
+      </div>
+      <div class="under" style="margin-top:2px"><span class="hint" id="hint"></span></div>
+    </section>
+
+    <!-- ================= RESULTS ================= -->
+    <section id="screen-results" class="screen" hidden>
+      <div class="res-top">
+        <h1 id="resTitle" style="margin-bottom:4px">Results</h1>
+        <span class="badge" id="resBadge" hidden>new best</span>
+      </div>
+      <span id="resSub"></span>
+      <span id="resTime"></span>
+      <div class="score">Accuracy: <b id="resAcc">—</b></div>
+      <div id="resAccSub"></div>
+      <div id="resRanked" class="ranked-status" aria-live="polite" hidden></div>
+      <div class="tiles" id="resTiles"></div>
+
+      <div class="section" id="resChartBox">
+        <div class="section-head"><h3 id="resChartTitle">Running count vs. your answers</h3></div>
+        <div id="resChart"></div>
+        <div class="legend" id="resLegend"></div>
+      </div>
+      <div class="section">
+        <div class="section-head"><h3>Count checks</h3><span id="resLogCount"></span></div>
+        <div class="table-wrap"><table id="resTable"></table></div>
+      </div>
+
+      <div class="actions">
+        <button class="link small" type="button" id="shareBtn">share</button>
+        <button class="btn" type="button" id="backBtn">Settings <kbd>Esc</kbd></button>
+        <button class="btn primary" type="button" id="againBtn">Try again <kbd>Enter</kbd></button>
+      </div>
+    </section>
+
+    <!-- ================= ACCOUNT ================= -->
+    <section id="screen-account" class="screen" hidden>
+      <div class="res-top">
+        <h1>Account</h1>
+        <button class="link small" type="button" id="accountBack">back (Esc)</button>
+      </div>
+      <p class="small muted">Your account holds your player name for online play. Training works without one.</p>
+      <div id="acctSignedOut">
+        <div class="opt" id="oauthRow">
+          <div class="gis" id="googleBtn" hidden></div>
+          <button class="btn oauth" type="button" data-provider="google" hidden>
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
+            Continue with Google</button>
+          <button class="btn oauth" type="button" data-provider="github" hidden>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            Continue with GitHub</button>
+        </div>
+        <div class="group-title" id="orLine">or with email</div>
+        <form id="pwForm">
+          <div class="opt"><label class="k" for="acctEmail">Email:</label><input type="email" id="acctEmail" autocomplete="email" required></div>
+          <div class="opt"><label class="k" for="acctPw">Password:</label><input type="password" id="acctPw" autocomplete="current-password" minlength="6" required></div>
+          <div class="opt">
+            <span class="k"></span>
+            <button class="btn primary" type="submit" data-action="signin">Sign in</button>
+            <button class="btn" type="submit" data-action="signup">Create account</button>
+            <button class="link small" type="button" id="forgotBtn">forgot password?</button>
+          </div>
+        </form>
+      </div>
+      <form id="newPwForm" hidden>
+        <div class="opt"><label class="k" for="acctNewPw">New password:</label><input type="password" id="acctNewPw" autocomplete="new-password" minlength="6" required><button class="btn primary" type="submit">Save</button></div>
+      </form>
+      <div id="acctSignedIn" hidden>
+        <div class="opt"><span class="k">Signed in as:</span><span class="mono small" id="acctWho"></span></div>
+        <form class="opt" id="nameForm">
+          <label class="k" for="acctName">Player name:</label>
+          <input type="text" id="acctName" maxlength="20" autocomplete="nickname" required>
+          <button class="btn primary" type="submit" id="nameSave">Save</button>
+          <span class="help" id="nameHelp">3–20 letters, digits or _</span>
+        </form>
+        <div class="actions" style="justify-content:flex-start"><button class="btn" type="button" id="signOutBtn">Sign out</button></div>
+      </div>
+      <p class="fb" id="acctMsg" aria-live="polite"></p>
+    </section>
+
+    <!-- ================= RANKED 1v1: lobby, queue, last result ================= -->
+    <section id="screen-ranked" class="screen" hidden>
+      <div class="res-top">
+        <h1>Ranked 1v1</h1>
+        <button class="link small" type="button" id="rankedBack">back (Esc)</button>
+      </div>
+      <p class="small muted" id="duelRules"></p>
+      <div class="invite" id="challengeBox" hidden>
+        <span id="challengeText"></span>
+        <span>
+          <button class="btn primary" type="button" id="acceptBtn">Accept <kbd>Enter</kbd></button>
+          <button class="btn" type="button" id="declineBtn">Decline</button>
+        </span>
+        <p class="fb" id="challengeMsg" aria-live="polite"></p>
+      </div>
+      <div id="lobbySignedOut" hidden>
+        <p>Sign in to play ranked. Training stays free and offline.</p>
+        <div class="actions" style="justify-content:flex-start"><button class="btn primary" type="button" id="lobbySignIn">Sign in</button></div>
+      </div>
+      <div id="lobbySignedIn" hidden>
+        <div class="opt"><span class="k">Rating:</span><b class="mono" id="lobbyElo">—</b><span class="small muted" id="lobbyRecord"></span><button class="link small" type="button" id="historyBtn">match history</button></div>
+        <div id="lastMatch" class="duel-result" hidden></div>
+        <div class="start" id="lobbyStart">
+          <span class="small muted" id="lobbyNote">You and a player of similar rating see the same cards at the same time. Miss a count the other gets right and you lose.</span>
+          <span class="lobby-buttons">
+            <button class="link small" type="button" id="inviteBtn">challenge a friend</button>
+            <button class="btn primary big" type="button" id="findBtn">Play ranked</button>
+          </span>
+        </div>
+        <div class="invite" id="inviteBox" hidden>
+          <span class="small muted">Send this link to a friend. The match starts when they accept, so keep this page open. Friendly match: no Elo change.</span>
+          <span class="invite-link">
+            <input type="text" id="inviteUrl" readonly aria-label="Invite link" spellcheck="false">
+            <button class="btn" type="button" id="inviteCopy">Copy</button>
+          </span>
+          <span class="invite-wait">
+            <span aria-live="polite"><span id="inviteText">Waiting for your friend…</span> <b class="mono" id="inviteClock">0:00</b></span>
+            <button class="btn" type="button" id="inviteCancel">Cancel <kbd>Esc</kbd></button>
+          </span>
+        </div>
+        <div class="start" id="lobbySearch" hidden>
+          <span aria-live="polite"><span id="searchText">Searching for an opponent…</span> <b class="mono" id="searchClock">0:00</b> <span class="small muted" id="searchWindow"></span></span>
+          <span>
+            <button class="btn" type="button" id="keepBtn" hidden>Keep waiting</button>
+            <button class="btn" type="button" id="cancelSearchBtn">Cancel <kbd>Esc</kbd></button>
+          </span>
+        </div>
+        <p class="fb" id="lobbyMsg" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ================= RANKED 1v1: the duel ================= -->
+    <section id="screen-duel" class="screen" hidden>
+      <div class="bar">
+        <span>Round <b id="duelRound">1</b>/<span id="duelRounds">12</span></span>
+        <span><b id="duelPace">1.00</b> s/card</span>
+      </div>
+      <div class="progress" aria-hidden="true"><div class="progress-bar" id="duelBar"></div></div>
+      <div class="duel-strip" id="duelStrip"></div>
+      <div class="stage" id="duelStage">
+        <div class="stage-content"><div class="single" id="duelCard"></div></div>
+        <div class="overlay" id="duelCountOv" hidden>
+          <div class="countdown-info">
+            <div class="count-num" id="duelCountNum">3</div>
+            <p id="duelVs"></p>
+            <p style="opacity:.75">Hi-Lo · count starts at 0 · same cards for both</p>
+          </div>
+        </div>
+        <div class="overlay" id="duelCheckOv" hidden>
+          <div class="dialog" role="dialog" aria-labelledby="duelCheckTitle">
+            <span id="duelCheckMeta"></span>
+            <h2 id="duelCheckTitle">What's the running count?</h2>
+            <div class="answer-row">
+              <button class="btn sign" type="button" data-sign="duelInput" aria-label="Toggle sign">±</button>
+              <div class="prompt"><input type="text" id="duelInput" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Running count"></div>
+              <button class="btn primary" type="button" id="duelSubmit">OK</button>
+            </div>
+            <p class="fb" id="duelFb" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="overlay" id="duelRevealOv" hidden>
+          <div class="dialog" role="status">
+            <span id="duelRevealMeta"></span>
+            <h2 id="duelRevealTitle"></h2>
+            <p class="mono" id="duelRevealLine"></p>
+          </div>
+        </div>
+        <div class="overlay" id="duelLeaveOv" hidden>
+          <div class="dialog" role="dialog" aria-labelledby="duelLeaveTitle">
+            <h2 id="duelLeaveTitle">Leave the match?</h2>
+            <p class="small muted" style="margin:0">The match keeps running. Leaving counts as a loss.</p>
+            <div class="stack">
+              <button class="btn primary" type="button" id="duelStayBtn">Keep playing <kbd>Esc</kbd></button>
+              <button class="btn danger" type="button" id="duelLeaveBtn">Leave and lose</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="under">
+        <span id="duelHud"></span>
+        <button class="link small" type="button" id="duelEscBtn">leave (Esc)</button>
+      </div>
+    </section>
+
+    <!-- ================= LADDER ================= -->
+    <section id="screen-ladder" class="screen" hidden>
+      <div class="res-top">
+        <h1>Ladder</h1>
+        <button class="link small" type="button" id="ladderBack">back (Esc)</button>
+      </div>
+      <p class="small muted" id="ladderMe">Count Duel Elo ratings. Everyone starts at 1000.</p>
+      <div class="table-wrap"><table id="ladderTable"></table></div>
+    </section>
+
+    <!-- ================= RANKED 1v1: match history ================= -->
+    <section id="screen-history" class="screen" hidden>
+      <div class="res-top">
+        <h1>Match history</h1>
+        <button class="link small" type="button" id="historyBack">back (Esc)</button>
+      </div>
+      <p class="small muted" id="historyMe">Your last 50 ranked matches. Click one to see its rounds.</p>
+      <div class="table-wrap"><table id="historyTable"></table></div>
+      <div id="historyDetail" class="duel-result" hidden></div>
+    </section>
+
+    <!-- ================= STATISTICS ================= -->
+    <section id="screen-stats" class="screen" hidden>
+      <div class="res-top">
+        <h1>Statistics</h1>
+        <button class="link small" type="button" id="statsBack">back (Esc)</button>
+      </div>
+      <p class="small muted">Your last 20 sessions, saved in this browser.</p>
+      <div class="tiles" id="statsTiles"></div>
+      <div class="section">
+        <div class="section-head"><h3>Accuracy by session</h3>
+          <span>
+            <select id="statsFilter" aria-label="Filter by mode"></select>
+            <select id="statsLevel" aria-label="Filter by level">
+              <option value="all">All levels</option><option value="low">Low</option><option value="medium">Medium</option><option value="hard">Hard</option><option value="custom">Custom / manual</option>
+            </select>
+          </span>
+        </div>
+        <div id="statsChart"></div>
+      </div>
+      <div class="section">
+        <div class="section-head"><h3>Sessions</h3></div>
+        <div class="table-wrap"><table id="statsTable"></table></div>
+      </div>
+      <div class="actions"><button class="link small" type="button" id="clearBtn" style="color:var(--bad)">clear history and bests</button></div>
+    </section>
+  </main>
+
+  <!--@footer-->
+</div>
+
+<noscript><p style="text-align:center">This trainer needs JavaScript enabled.</p></noscript>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
