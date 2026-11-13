@@ -1,0 +1,47 @@
+/* =========================================================
+   RANKED 1v1 — lobby, duel strip (you vs opponent), result, ladder
+   ========================================================= */
+.duel-strip { display: grid; gap: 3px; margin-bottom: 8px; font-family: var(--mono); font-size: 12px; }
+.duel-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px; }
+.duel-row .who { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.duel-row .who small { color: var(--muted); margin-left: 6px; }
+.duel-row.me .who { color: var(--accent); font-weight: 600; }
+.boxes { display: flex; gap: 3px; }
+.box { width: 16px; height: 16px; display: grid; place-items: center; border: 1px solid var(--line); background: var(--field); font-size: 11px; line-height: 1; color: var(--muted); }
+.box.ok { background: var(--good); border-color: var(--good); color: #fff; }
+.box.ko { background: var(--bad); border-color: var(--bad); color: #fff; }
+.box.cur { border-color: var(--accent); }
+.box.ans { color: var(--accent); }
+#duelCheckMeta, #duelRevealMeta { display: block; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+#duelRevealLine { margin: 8px 0 0; font-size: 13px; }
+#duelRevealLine .good { color: var(--good); } #duelRevealLine .bad { color: var(--bad); }
+#duelHud { font-family: var(--mono); }
+.duel-result { margin: 12px 0; padding-top: 10px; border-top: 1px solid var(--line); }
+.duel-result h2 { font-size: 22px; margin: 0; }
+.duel-result h2.good { color: var(--good); } .duel-result h2.bad { color: var(--bad); }
+.duel-result .table-wrap { margin-top: 8px; max-height: 220px; }
+.duel-result .sub { display: block; font-family: var(--mono); font-size: 11.5px; }
+#lobbyElo { font-size: 20px; margin-right: 8px; }
+#searchWindow { margin-left: 6px; }
+#historyBtn { margin-left: auto; }
+#historyTable tr.pick { cursor: pointer; }
+#historyTable tr.pick:hover td, #historyTable tr.sel td { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+#historyTable tr.pick:focus-visible { outline: 1px solid var(--accent); outline-offset: -1px; }
+#historyTable .good { color: var(--good); } #historyTable .bad { color: var(--bad); }
+#historyTable .muted { color: var(--muted); }
+#historyDetail { margin-top: 12px; }
+.lobby-buttons { display: inline-flex; align-items: center; gap: 14px; }
+#inviteBtn { white-space: nowrap; }
+.invite { display: grid; gap: 8px; margin: 12px 0; padding: 10px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.invite > span:first-child .muted, #challengeText .muted { color: var(--muted); }
+.invite-link { display: flex; gap: 6px; }
+.invite-link input { flex: 1; min-width: 0; font-family: var(--mono); font-size: 12.5px; padding: 6px 8px; border: 1px solid var(--line); background: var(--field); color: var(--text); border-radius: 0; }
+.invite-wait { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+#challengeBox > span:nth-child(2) { display: flex; gap: 8px; }
+#challengeMsg:empty { display: none; }
+@media (max-width: 640px) {
+  .box { width: 13px; height: 13px; font-size: 9px; }
+  .boxes { gap: 2px; }
+}
+#brandBtn { white-space: nowrap; }
+.last-share { text-align: right; margin-top: 6px; }
