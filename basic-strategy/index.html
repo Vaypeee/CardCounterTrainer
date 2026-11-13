@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--@head-->
+</head>
+<body>
+<div class="page">
+  <!--@nav-->
+
+  <main class="panel">
+    <article class="guide">
+      <h1>Blackjack basic strategy chart</h1>
+      <p class="lede">Basic strategy is the best way to play every hand when you do not count: it cuts the house edge to roughly half a percent in a good game. It is also the foundation of card counting, since counters only deviate from it in a few spots. Below is the full chart, then how to learn it.</p>
+      <p class="toc"><a href="#rules">rules</a><a href="#hard">hard totals</a><a href="#soft">soft hands</a><a href="#pairs">pairs</a><a href="#variations">other rules</a><a href="#learn">how to learn it</a><a href="#counting">with counting</a></p>
+
+      <h2 id="rules"><span class="n">1</span>Rules this chart assumes</h2>
+      <p><b>4 to 8 decks, dealer stands on soft 17 (S17), double after split allowed (DAS), late surrender, blackjack pays 3:2.</b> These are the rules used throughout this site. Find your hand on the left and the dealer’s up card at the top.</p>
+      <p class="legend"><span>H</span>hit <span style="background:color-mix(in srgb, var(--warn) 24%, transparent)">S</span>stand <span style="background:color-mix(in srgb, var(--good) 28%, transparent)">D</span>double, else hit <span style="background:color-mix(in srgb, var(--good) 28%, transparent)">Ds</span>double, else stand <span style="background:color-mix(in srgb, #3b82f6 28%, transparent)">P</span>split <span style="background:color-mix(in srgb, var(--bad) 26%, transparent)">Rh</span>surrender, else hit</p>
+
+      <h2 id="hard"><span class="n">2</span>Hard totals</h2>
+      <p>A hard hand has no ace, or an ace that must count as 1.</p>
+      <!--@table:basic-hard-->
+
+      <h2 id="soft"><span class="n">3</span>Soft hands</h2>
+      <p>A soft hand has an ace counted as 11 (A,6 is soft 17). It cannot bust with one more card, which is why you double soft hands so often against weak dealer cards.</p>
+      <!--@table:basic-soft-->
+
+      <h2 id="pairs"><span class="n">4</span>Pairs</h2>
+      <p>Always split aces and eights; never split tens or fives (play 5,5 as a hard 10).</p>
+      <!--@table:basic-pairs-->
+
+      <h2 id="variations"><span class="n">5</span>If your table’s rules differ</h2>
+      <ul>
+        <li><b>Dealer hits soft 17 (H17):</b> double 11 vs A, double A,8 vs 6 (else stand), double A,7 vs 2 (else stand), and with surrender also surrender 15 vs A, 17 vs A and 8,8 vs A.</li>
+        <li><b>No surrender:</b> every “Rh” becomes a hit.</li>
+        <li><b>No double after split:</b> split 2,2 and 3,3 only vs 4–7, never split 4,4, and split 6,6 only vs 3–6.</li>
+        <li><b>Blackjack pays 6:5:</b> the strategy barely changes, but the house edge jumps by about 1.4%. Avoid these tables.</li>
+        <li><b>Insurance:</b> never take it without counting. Counters take it at Hi-Lo true count +3 or more.</li>
+      </ul>
+
+      <h2 id="learn"><span class="n">6</span>How to learn it quickly</h2>
+      <ol>
+        <li><b>Hard totals first.</b> Most decisions follow one idea: the dealer’s 2–6 are “bust cards” (stand on 12–16 against them, except 12 vs 2 and 3), 7–A are strong (hit until 17).</li>
+        <li><b>Then pairs</b>, which have the fewest exceptions: always A,A and 8,8; never 5,5 and T,T; 9,9 splits except against 7, 10 and A.</li>
+        <li><b>Soft hands last.</b> The doubling zone widens as the hand improves: A,2–A,3 vs 5–6, A,4–A,5 vs 4–6, A,6–A,7 vs 3–6.</li>
+        <li>Drill with flashcards until each answer is instant, then play hands without looking at the chart.</li>
+      </ol>
+
+      <h2 id="counting"><span class="n">7</span>From basic strategy to card counting</h2>
+      <p>Once basic strategy is automatic, counting adds two things: betting more when the <a href="/true-count/">true count</a> is high, and a handful of strategy changes called <a href="/illustrious-18/">index plays</a>. Start with the <a href="/how-to-count-cards/">beginner’s guide</a>, then train the count itself:</p>
+      <div class="actions" style="justify-content:flex-start"><a class="btn primary" href="/">Practise counting now</a></div>
+
+      <p class="small muted">For educational purposes only. The chart is the standard multi-deck S17 DAS late-surrender strategy; edges are approximate.</p>
+    </article>
+  </main>
+
+  <!--@footer-->
+</div>
+<script type="module" src="/src/pages/content.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--@head-->
+</head>
+<body>
+<div class="page">
+  <!--@nav-->
+
+  <main class="panel">
+    <article class="guide">
+      <h1>The Hi-Lo card counting system</h1>
+      <p class="lede">Hi-Lo is the most widely used blackjack count: simple enough to keep at casino speed, strong enough for serious play. This page covers the card values, the running and true count, how to size your bets, and the index plays that matter most.</p>
+      <p class="toc"><a href="#values">card values</a><a href="#running-count">running count</a><a href="#true-count">true count</a><a href="#betting">betting</a><a href="#index-plays">index plays</a><a href="#strength">strength</a></p>
+
+      <h2 id="values"><span class="n">1</span>Hi-Lo card values</h2>
+      <p>Every card gets a tag of +1, 0 or −1. Low cards that leave the shoe are good for the player, high cards are bad:</p>
+      <!--@table:tags-hilo-->
+      <p>Hi-Lo is a <b>level 1</b> count (tags are only ±1) and it is <b>balanced</b>: one deck holds twenty +1 cards and twenty −1 cards, so a complete shoe always counts back to 0. The system was introduced by Harvey Dubner in 1963 and popularised by Stanford Wong’s <i>Professional Blackjack</i>.</p>
+
+      <h2 id="running-count"><span class="n">2</span>Keeping the running count</h2>
+      <p>Start at 0 after every shuffle and add the tag of each card you see, including other players’ cards and the dealer’s hole card when it is turned over.</p>
+      <div class="example">Round 1: 5 K 3 | Q 9 | dealer 6 &nbsp;→&nbsp; +1 −1 +1 −1 0 +1 = <b>+1</b><br>Round 2: 2 4 | 8 A | dealer 5 &nbsp;→&nbsp; +1 +1 0 −1 +1 = +2, running count <b>+3</b></div>
+      <ul>
+        <li>Count in pairs: a 10 and a 5 cancel out, so skip them and only add what is left.</li>
+        <li>Learn to recognise common groups at a glance (two tens and a small card = −1).</li>
+        <li>Practise until you can count a full deck in under 25 seconds without mistakes: that is the <a href="/">Speed Count</a> drill.</li>
+      </ul>
+
+      <h2 id="true-count"><span class="n">3</span>Converting to the true count</h2>
+      <p>In a multi-deck game the running count must be divided by the number of decks still to be played:</p>
+      <div class="example"><b>True count = running count ÷ decks remaining</b><br>Running count +9, about 3 decks left → true count +3</div>
+      <p>Estimate the decks left from the discard tray to the nearest half deck and round the result down (floor). Most published Hi-Lo indices assume floored true counts. A step-by-step explanation with a calculator is in the <a href="/how-to-count-cards/#true-count">beginner’s guide</a>.</p>
+
+      <h2 id="betting"><span class="n">4</span>Betting with Hi-Lo</h2>
+      <p>Each +1 of true count adds roughly 0.5% to the player’s edge. A typical 6-deck game starts at about −0.5%, so the edge turns positive around TC +1 to +2. Raise your bet only from there:</p>
+      <div class="table-wrap"><table>
+        <tr><th>True count</th><th>Bet (units)</th></tr>
+        <tr><td class="num">+1 or less</td><td class="num">1</td></tr>
+        <tr><td class="num">+2</td><td class="num">2</td></tr>
+        <tr><td class="num">+3</td><td class="num">4</td></tr>
+        <tr><td class="num">+4</td><td class="num">6</td></tr>
+        <tr><td class="num">+5 or more</td><td class="num">8</td></tr>
+      </table></div>
+      <p>A wider spread earns more but is easier for the casino to spot. Your unit should be small relative to your bankroll: the short-term swings of counting are large.</p>
+
+      <h2 id="index-plays"><span class="n">5</span>Index plays: Illustrious 18 and Fab 4</h2>
+      <p>Basic strategy assumes a neutral shoe. When the true count reaches a play’s <b>index</b>, the best play changes. Two short lists from Don Schlesinger’s <i>Blackjack Attack</i> capture most of the value. Indices below are for multi-deck games, dealer stands on soft 17, double after split allowed.</p>
+      <h3>Illustrious 18</h3>
+      <p>The single most valuable deviation is <b>insurance: take it at true count +3 or higher</b>. The hand plays:</p>
+      <!--@table:deviations-i18-->
+      <h3>Fab 4 surrenders</h3>
+      <p>Where late surrender is offered:</p>
+      <!--@table:deviations-fab4-->
+      <p>The trainer’s <a href="/">Deviations mode</a> quizzes all of these with a random true count around each index.</p>
+
+      <h2 id="strength"><span class="n">6</span>How strong is Hi-Lo?</h2>
+      <p>Counting systems are compared on three measures: betting correlation (how well the count predicts your edge, used to size bets), playing efficiency (how well it guides strategy changes) and insurance correlation. Hi-Lo scores about 0.97 / 0.51 / 0.76. That is very strong for betting and adequate for playing. Level 2 counts gain a little playing efficiency at the cost of much harder counting. See the <a href="/card-counting-systems/">full comparison of counting systems</a>.</p>
+
+      <div class="actions" style="justify-content:flex-start"><a class="btn primary" href="/">Practise Hi-Lo now</a></div>
+      <p class="small muted">For educational purposes only. Edges and indices are approximate and depend on the exact rules.</p>
+    </article>
+  </main>
+
+  <!--@footer-->
+</div>
+<script type="module" src="/src/pages/content.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--@head-->
+</head>
+<body>
+<div class="page">
+  <!--@nav-->
+
+  <main class="panel">
+    <article class="guide">
+      <h1>How to count cards in blackjack</h1>
+      <p class="lede">A beginner’s guide to the Hi-Lo count, the system most players use. Read it in a few minutes, then practise each step in the <a href="/">free card counting trainer</a>.</p>
+      <p class="toc"><a href="#why">why it works</a><a href="#running-count">running count</a><a href="#true-count">true count</a><a href="#edge">your edge</a><a href="#betting">betting</a><a href="#practice">practice</a><a href="#faq">faq</a></p>
+
+      <h2 id="why"><span class="n">1</span>Why counting cards works</h2>
+      <p>Blackjack is not a game of independent hands: every card that leaves the shoe changes what is left. When the remaining shoe is <b>rich in tens and aces</b>, the player wins more often: more blackjacks (paid 3:2), more successful doubles, and the dealer busts more because they must hit 12–16. When it is <b>rich in small cards (2–6)</b>, the dealer is favoured.</p>
+      <p>Card counting is just a quick way to know which of the two situations you are in, so you can bet more when the shoe favours you and less when it does not. You do not memorise every card: you keep one number in your head.</p>
+
+      <h2 id="running-count"><span class="n">2</span>How to keep the running count</h2>
+      <p>Start at <b>0</b> after the shuffle. Give every card you see a value and add it up. That total is the <b>running count</b>.</p>
+      <div class="table-wrap"><table>
+        <tr><th>Cards</th><th class="c">Value</th><th>Why</th></tr>
+        <tr><td>2, 3, 4, 5, 6</td><td class="c good">+1</td><td>A small card has left the shoe: good for you</td></tr>
+        <tr><td>7, 8, 9</td><td class="c">0</td><td>Neutral, ignore them</td></tr>
+        <tr><td>10, J, Q, K, A</td><td class="c bad">−1</td><td>A big card has left the shoe: bad for you</td></tr>
+      </table></div>
+      <div class="example">K  5  3  9  A  6  2 &nbsp;→&nbsp; −1 +1 +1 0 −1 +1 +1 &nbsp;=&nbsp; <b>+2</b></div>
+      <ul>
+        <li><b>Cancel pairs:</b> a high and a low card together are 0. Look at the whole table, cancel, count what remains.</li>
+        <li><b>Never say the numbers in your head</b> one by one at speed. Train until you see “+1” instead of “5”.</li>
+        <li>A full shoe always ends at 0 with Hi-Lo, because the system is balanced. Counting down a deck and landing on 0 is the classic self-test (the trainer’s Speed Count mode).</li>
+      </ul>
+
+      <h2 id="sign"><span class="n">3</span>Positive or negative: what it means</h2>
+      <ul>
+        <li><b>Positive count (+):</b> more small cards are gone, so the shoe left is rich in tens and aces. <b>Good for you.</b></li>
+        <li><b>Zero:</b> a normal shoe. The casino keeps its small edge (about 0.5% with good rules).</li>
+        <li><b>Negative count (−):</b> the shoe left is full of small cards. <b>Good for the dealer.</b> Bet the minimum.</li>
+      </ul>
+
+      <h2 id="true-count"><span class="n">4</span>Running count → true count</h2>
+      <p>A +6 does not mean the same thing with 6 decks or 1 deck left: the same 6 extra big cards are diluted in more cards. So divide by the decks that remain:</p>
+      <div class="example"><b>True count = running count ÷ decks remaining</b><br>+6 with 3 decks left → +2 &nbsp;·&nbsp; +6 with 1 deck left → +6</div>
+      <p>Estimate decks remaining by looking at the discard tray (to the nearest half deck), and round the result down. The true count is what you use to decide your bet and your playing deviations.</p>
+
+      <h2 id="edge"><span class="n">5</span>How good is my count?</h2>
+      <p>Rule of thumb for Hi-Lo: <b>each +1 of true count gives you about +0.5% edge</b>. With a typical 6-deck game you start at about −0.5%, so you break even around TC +1.</p>
+      <!--@table:edge-->
+
+      <p><b>Worked examples</b>, with the decks left in a 6-deck shoe (true count rounded down):</p>
+      <!--@table:scenarios-->
+
+      <h3>True count calculator</h3>
+      <div class="calc">
+        <div class="opt">
+          <label for="calcRc">Running count:</label>
+          <input type="number" id="calcRc" value="7" step="0.5" style="width:70px">
+          <label for="calcDecks">&nbsp; Decks left:</label>
+          <input type="number" id="calcDecks" value="2.5" step="0.5" min="0.5" max="8" style="width:70px">
+        </div>
+        <div id="calcOut" aria-live="polite"></div>
+      </div>
+
+      <h2 id="betting"><span class="n">6</span>Betting and playing with the count</h2>
+      <ul>
+        <li><b>Bet small when the true count is low, bet more when it is high.</b> A simple 1–8 spread: TC ≤ +1 → 1 unit, +2 → 2, +3 → 4, +4 → 6, +5 and up → 8.</li>
+        <li><b>Change a few plays</b> when the count is high or low (the “deviations” or index plays). Most valuable: take <b>insurance at TC ≥ +3</b>, <b>stand on 16 vs 10 at TC ≥ 0</b>, <b>stand on 15 vs 10 at TC ≥ +4</b>. The full list is on the <a href="/hi-lo/#index-plays">Hi-Lo page</a>.</li>
+        <li>KO is <i>unbalanced</i>: it starts below 0 and you use the running count directly (no division). The other common systems work like Hi-Lo with a true count. See the <a href="/card-counting-systems/">comparison of counting systems</a>.</li>
+      </ul>
+
+      <h2 id="practice"><span class="n">7</span>Suggested training path</h2>
+      <p>Each step below is a mode of the <a href="/">trainer</a>. Move on when the previous one feels automatic.</p>
+      <ol>
+        <li><b>Flash Cards</b> Low → Medium → Hard until you are above 95% accuracy.</li>
+        <li><b>Speed Count</b>: one deck in under 30 s, then under 20 s, with the right final count.</li>
+        <li><b>True Count</b>: get the conversion instantly.</li>
+        <li><b>Hands</b>: count a full table, which is what you really see in a casino.</li>
+        <li><b>Deviations</b> once the count is automatic.</li>
+      </ol>
+      <div class="actions" style="justify-content:flex-start"><a class="btn primary" href="/">Start training</a></div>
+
+      <h2 id="faq"><span class="n">8</span>Common questions</h2>
+      <h3>Is card counting illegal?</h3>
+      <p>Counting in your head is not cheating and is legal in most places, including the US and the UK. Using a device to count is illegal in many jurisdictions. Casinos are private businesses, though: they can refuse your action, limit your bets or ask you to stop playing blackjack.</p>
+      <h3>How long does it take to learn?</h3>
+      <p>The card values take minutes. Keeping an accurate running count at casino speed, converting to a true count and playing perfect basic strategy at the same time usually takes several weeks of regular practice.</p>
+      <h3>Do I need to know basic strategy first?</h3>
+      <p>Yes. Counting only gives an edge on top of correct basic strategy. Without it, the mistakes cost more than the count earns.</p>
+      <h3>Does counting work with continuous shuffling machines?</h3>
+      <p>No. A continuous shuffler puts the cards back after every round, so the shoe never becomes rich or poor in tens. Counting needs a hand-shuffled or batch-shuffled shoe with decent penetration.</p>
+
+      <p class="small muted">For educational purposes only. Edges are approximate (6 decks, dealer stands on soft 17, double after split allowed, 3:2 blackjack) and real results vary a lot in the short term.</p>
+    </article>
+  </main>
+
+  <!--@footer-->
+</div>
+<script type="module" src="/src/pages/content.js"></script>
+</body>
+</html>

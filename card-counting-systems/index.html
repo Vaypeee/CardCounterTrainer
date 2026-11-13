@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--@head-->
+</head>
+<body>
+<div class="page">
+  <!--@nav-->
+
+  <main class="panel">
+    <article class="guide">
+      <h1>Card counting systems compared</h1>
+      <p class="lede">Hi-Lo, KO, Omega II, Zen and Wong Halves side by side: what each card is worth, how hard each count is, and how much it gains. All five can be practised in the <a href="/">trainer</a>.</p>
+      <p class="toc"><a href="#values">card values</a><a href="#compare">comparison</a><a href="#terms">terms</a><a href="#systems">systems</a><a href="#choose">which one?</a></p>
+
+      <h2 id="values"><span class="n">1</span>Card values by system</h2>
+      <!--@table:systems-tags-->
+
+      <h2 id="compare"><span class="n">2</span>Level, balance and efficiency</h2>
+      <!--@table:systems-compare-->
+      <p class="small muted">BC = betting correlation, PE = playing efficiency, IC = insurance correlation, as commonly quoted in the blackjack literature. Higher is better.</p>
+
+      <h2 id="terms"><span class="n">3</span>What the terms mean</h2>
+      <ul>
+        <li><b>Level</b>: the largest tag a card can have. Level 1 counts only use ±1 and are the easiest to keep fast and accurately. Level 2 and 3 counts are more precise but harder.</li>
+        <li><b>Balanced</b>: a full shoe counts back to 0, and you divide the running count by the decks left to get a <a href="/how-to-count-cards/#true-count">true count</a>.</li>
+        <li><b>Unbalanced</b>: a full shoe does not sum to 0. You start from a negative initial count and use the running count directly, with no division.</li>
+        <li><b>Betting correlation</b> matters most for your bet sizing, which is where most of a counter’s profit comes from. <b>Playing efficiency</b> matters for strategy deviations.</li>
+      </ul>
+
+      <h2 id="systems"><span class="n">4</span>The systems</h2>
+      <h3>Hi-Lo</h3>
+      <p>Level 1, balanced. The standard count, with the largest body of published index plays. Strong betting correlation and the easiest balanced count to learn. Full details on the <a href="/hi-lo/">Hi-Lo page</a>.</p>
+      <h3>KO (Knock-Out)</h3>
+      <p>Level 1, unbalanced. Same as Hi-Lo except that 7s count +1. Each deck therefore adds +4, so the count starts at 4 − 4 × decks (−20 for six decks) and a full shoe ends at +4. No true count conversion is needed, which makes it the easiest count to use at the table. From Olaf Vancura and Ken Fuchs’s <i>Knock-Out Blackjack</i>.</p>
+      <h3>Omega II</h3>
+      <p>Level 2, balanced. Fours, fives and sixes are +2, tens −2, and aces count 0. Players usually keep a separate ace side count for betting. High playing efficiency, but demanding to keep accurate. Popularised by Bryce Carlson’s <i>Blackjack for Blood</i>.</p>
+      <h3>Zen Count</h3>
+      <p>Level 2, balanced. Like Omega II but aces are −1 and 9s are neutral, so no side count is needed. A good balance of betting and playing strength. From Arnold Snyder’s <i>Blackbelt in Blackjack</i>.</p>
+      <h3>Wong Halves</h3>
+      <p>Level 3, balanced, with half-point tags (the 5 is worth +1.5). It has the highest betting correlation of the five but is the hardest to keep. Many players double every tag to count in whole numbers. From Stanford Wong.</p>
+
+      <h2 id="choose"><span class="n">5</span>Which system should you learn?</h2>
+      <ul>
+        <li><b>Start with Hi-Lo.</b> Most books, index tables and training material use it, and the extra gain of harder counts is small compared to the cost of counting errors.</li>
+        <li><b>Choose KO</b> if the true count conversion is what slows you down.</li>
+        <li><b>Move to Zen or Omega II</b> only once Hi-Lo is completely automatic and you play mostly single- or double-deck games, where playing efficiency matters more.</li>
+      </ul>
+      <p>Whatever the system, accuracy at speed matters more than the system’s efficiency. Train the running count until it is automatic.</p>
+
+      <div class="actions" style="justify-content:flex-start"><a class="btn primary" href="/">Practise a system</a></div>
+      <p class="small muted">For educational purposes only.</p>
+    </article>
+  </main>
+
+  <!--@footer-->
+</div>
+<script type="module" src="/src/pages/content.js"></script>
+</body>
+</html>

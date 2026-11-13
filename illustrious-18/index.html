@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--@head-->
+</head>
+<body>
+<div class="page">
+  <!--@nav-->
+
+  <main class="panel">
+    <article class="guide">
+      <h1>The Illustrious 18 and Fab 4</h1>
+      <p class="lede">Card counters do not play basic strategy blindly. In a few situations the true count says the opposite play is better. Don Schlesinger showed in <i>Blackjack Attack</i> that a short list of these “index plays” captures most of the value of playing with the count. Here they are for Hi-Lo, and how to make them automatic.</p>
+      <p class="toc"><a href="#how">how indices work</a><a href="#insurance">insurance</a><a href="#i18">illustrious 18</a><a href="#fab4">fab 4</a><a href="#priority">what matters most</a><a href="#drill">drill them</a></p>
+
+      <h2 id="how"><span class="n">1</span>How an index works</h2>
+      <p>Each play has an <b>index</b>, a true count. At or above the index, you make the deviation; below it, you play basic strategy. Example: 16 against a dealer 10 has an index of 0. Basic strategy says hit (or surrender), but as soon as the <a href="/true-count/">true count</a> is 0 or higher, <b>stand</b>: the shoe holds enough tens that hitting busts too often.</p>
+      <p>Negative indices work the same way. 13 vs 2 has an index of −1: stand at −1 and above, hit only when the count drops below −1.</p>
+
+      <h2 id="insurance"><span class="n">2</span>Number one: insurance</h2>
+      <p>The most valuable index of all is <b>insurance at true count +3 or more</b>. Insurance pays 2:1 and wins when the dealer’s hole card is a ten. Normally fewer than a third of the cards are tens, so it is a bad bet. At TC +3 the proportion rises above one third and the bet turns profitable.</p>
+
+      <h2 id="i18"><span class="n">3</span>The Illustrious 18 (Hi-Lo)</h2>
+      <p>With insurance above, these are the classic Hi-Lo indices for a multi-deck S17 game, in order of importance:</p>
+      <!--@table:deviations-i18-->
+      <p>“TT” means a pair of ten-value cards: splitting tens against a 5 or 6 at a high count is correct, but it draws attention at the table, so many counters skip it.</p>
+
+      <h2 id="fab4"><span class="n">4</span>The Fab 4 surrenders</h2>
+      <p>Where late surrender is offered, these four surrender indices add almost as much value as the whole Illustrious 18:</p>
+      <!--@table:deviations-fab4-->
+
+      <h2 id="priority"><span class="n">5</span>What matters most</h2>
+      <ul>
+        <li><b>Insurance at +3</b> by a wide margin.</li>
+        <li><b>16 vs 10 and 15 vs 10</b>: they come up constantly.</li>
+        <li><b>12 vs 2 and 12 vs 3</b>, then the doubling plays (<b>10 vs 10, 11 vs A, 9 vs 2</b>).</li>
+        <li>The negative indices (13 vs 2 and 3, 12 vs 4–6) matter less for your edge, since you bet small at negative counts, but they are easy once you know the others.</li>
+      </ul>
+      <p>Learn basic strategy perfectly first (<a href="/basic-strategy/">full chart</a>). A deviation is only worth something if your basic play is already automatic.</p>
+
+      <h2 id="drill"><span class="n">6</span>Drill them</h2>
+      <p>Indices must come instantly, under the pressure of a live game. The trainer’s <a href="/">Deviations mode</a> shows a hand, the dealer’s up card and a true count around the index, and you choose hit, stand, double, split or surrender. It covers every play above except insurance (which only needs one number: +3), timed and scored.</p>
+      <div class="actions" style="justify-content:flex-start"><a class="btn primary" href="/">Practise the index plays</a></div>
+
+      <p class="small muted">For educational purposes only. Indices are for Hi-Lo, multi-deck, dealer stands on soft 17; values differ slightly for other rules.</p>
+    </article>
+  </main>
+
+  <!--@footer-->
+</div>
+<script type="module" src="/src/pages/content.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--@head-->
+</head>
+<body>
+<div class="page">
+  <!--@nav-->
+
+  <main class="panel">
+    <article class="guide">
+      <h1>True count: how to calculate it</h1>
+      <p class="lede">The running count tells you which way the shoe leans. The true count tells you <b>how much</b>. It is the number you bet with and the number every index play is based on. Here is how to get it quickly and accurately at the table.</p>
+      <p class="toc"><a href="#why">why</a><a href="#formula">formula</a><a href="#decks">decks left</a><a href="#rounding">rounding</a><a href="#table">table</a><a href="#value">what it is worth</a><a href="#practice">practice</a><a href="#faq">faq</a></p>
+
+      <h2 id="why"><span class="n">1</span>Why the running count is not enough</h2>
+      <p>A running count of +6 means six more small cards than big cards have left the shoe. With one deck left, those extra tens and aces are concentrated in 52 cards: a big advantage. With five decks left, the same surplus is spread over 260 cards and barely matters. The true count corrects for this by expressing the surplus <b>per deck remaining</b>.</p>
+
+      <h2 id="formula"><span class="n">2</span>The formula</h2>
+      <div class="example"><b>True count = running count ÷ decks remaining</b><br>Running count +9, about 3 decks left → +9 ÷ 3 = <b>+3</b><br>Running count +9, about 4½ decks left → +9 ÷ 4.5 = <b>+2</b></div>
+      <p>This applies to balanced counts such as Hi-Lo, Zen, Omega II and Halves. Unbalanced counts such as KO are built so that you can bet from the running count directly (see <a href="/card-counting-systems/">counting systems compared</a>).</p>
+
+      <h2 id="decks"><span class="n">3</span>Estimating the decks remaining</h2>
+      <ul>
+        <li><b>Look at the discard tray, not the shoe.</b> The discards are stacked neatly and easier to judge. Decks remaining = decks in the game − decks in the tray.</li>
+        <li><b>Learn what one, two and three decks look like.</b> At home, stack real decks and look at them from a seat’s distance. A deck is about 1.5–1.7 cm high.</li>
+        <li><b>Half-deck precision is enough</b> in a six-deck game. Near the end of the shoe, be more careful: dividing by 1 or by 1.5 changes the result a lot.</li>
+      </ul>
+
+      <h2 id="rounding"><span class="n">4</span>Rounding</h2>
+      <p>The division rarely comes out even. The two common conventions are <b>floor</b> (always round down: +2.8 → +2, −1.2 → −2) and <b>truncate</b> (drop the decimals: −1.2 → −1). Most players use floor with the Hi-Lo indices. What matters most is to <b>use the same convention as the index numbers you learned</b>, every time. The trainer’s True Count mode lets you choose decks to the nearest half or whole deck, and floor, truncate or round.</p>
+
+      <h2 id="table"><span class="n">5</span>Conversion table</h2>
+      <p>Floored true counts for common running counts. Rows are the running count, columns the decks left:</p>
+      <!--@table:tc-conversion-->
+      <p>Notice how fast the true count climbs in the last two decks: the same running count is worth two to three times more. That is why <b>penetration</b> (how deep the dealer deals before shuffling) matters so much to counters.</p>
+
+      <h2 id="value"><span class="n">6</span>What each true count is worth</h2>
+      <p>With Hi-Lo, each +1 of true count adds roughly <b>0.5%</b> to the player’s edge. Starting from about −0.5% off the top of a good six-deck game, the edge turns positive around TC +1 to +2:</p>
+      <!--@table:edge-->
+      <p>The true count also drives playing decisions. At <b>TC +3 or more, take insurance</b>; it is the single most valuable index play. The others are listed in <a href="/illustrious-18/">the Illustrious 18 and Fab 4</a>.</p>
+
+      <h2 id="practice"><span class="n">7</span>Practice until it is instant</h2>
+      <ol>
+        <li>Learn the running count first: count a full deck down to 0 in under 25 seconds.</li>
+        <li>Drill the division on its own with random running counts and deck amounts. The trainer’s <a href="/">True Count mode</a> does exactly that, timed.</li>
+        <li>Then combine both: deal a shoe, stop at random points, estimate the decks left and convert.</li>
+      </ol>
+      <div class="actions" style="justify-content:flex-start"><a class="btn primary" href="/">Practise the true count</a></div>
+
+      <h2 id="faq"><span class="n">8</span>FAQ</h2>
+      <h3>Do I need the true count in a single-deck game?</h3>
+      <p>Yes, but it is simpler: with half a deck left, the true count is double the running count. Many single-deck players simply adjust by eye.</p>
+      <h3>Should I divide by decks played or decks remaining?</h3>
+      <p>Always by decks <b>remaining</b>. Dividing by decks played is a common beginner mistake and gives nonsense results early in the shoe.</p>
+      <h3>How precise do I need to be?</h3>
+      <p>An error of half a deck in the middle of a six-deck shoe rarely changes the integer true count. Errors near the end of the shoe do, so slow down there.</p>
+
+      <p class="small muted">For educational purposes only. Figures are approximate and depend on the exact rules.</p>
+    </article>
+  </main>
+
+  <!--@footer-->
+</div>
+<script type="module" src="/src/pages/content.js"></script>
+</body>
+</html>
